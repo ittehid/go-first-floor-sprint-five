@@ -8,19 +8,19 @@ import (
 
 // Общие константы для вычислений.
 const (
-	MInKm      = 1000 // количество метров в одном километре
-	MinInHours = 60   // количество минут в одном часе
-	LenStep    = 0.65 // длина одного шага
-	CmInM      = 100  // количество сантиметров в одном метре
+	MInKm      = 1000 // Количество метров в одном километре
+	MinInHours = 60   // Количество минут в одном часе
+	LenStep    = 0.65 // Длина одного шага
+	CmInM      = 100  // Количество сантиметров в одном метре
 )
 
 // Training общая структура для всех тренировок
 type Training struct {
-	TrainingType string        // тип тренировки
-	Action       int           // количество повторов(шаги, гребки при плавании)
-	LenStep      float64       // длина одного шага или гребка в м
-	Duration     time.Duration // продолжительность тренировки
-	Weight       float64       // вес пользователя в кг
+	TrainingType string
+	Action       int
+	LenStep      float64
+	Duration     time.Duration
+	Weight       float64
 }
 
 // distance возвращает дистанцию, которую преодолел пользователь.
@@ -43,14 +43,14 @@ func (t Training) Calories() float64 {
 
 // InfoMessage содержит информацию о проведенной тренировке.
 type InfoMessage struct {
-	TrainingType string        // тип тренировки
-	Duration     time.Duration // длительность тренировки
-	Distance     float64       // расстояние, которое преодолел пользователь
-	Speed        float64       // средняя скорость, с которой двигался пользователь
-	Calories     float64       // количество потраченных килокалорий на тренировке
+	TrainingType string
+	Duration     time.Duration
+	Distance     float64
+	Speed        float64
+	Calories     float64
 }
 
-// TrainingInfo возвращает cтруктуру InfoMessage, в которой хранится вся информация о проведенной тренировке.
+// TrainingInfo возвращает структуру InfoMessage, в которой хранится вся информация о проведенной тренировке.
 func (t Training) TrainingInfo() InfoMessage {
 	return InfoMessage{
 		TrainingType: t.TrainingType,
